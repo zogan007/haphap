@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>หนังสือรักของเรา 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <style>
+    .navbar {
+  background: #ffccdd;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  background: #ff66aa;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  background: #ff3388;
+}
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffd6ec);
+      color: #ff3399;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #ff3399;
+      margin-bottom: 20px;
+    }
+
+    .book-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background: #fff0f6;
+      border-radius: 20px;
+      border: 4px solid #ff99cc;
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    .page {
+      min-height: 250px;
+      font-size: 1.2rem;
+      color: #d63384;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .book-controls {
+      margin-top: 20px;
+    }
+
+    .book-controls button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1rem;
+      background-color: #ff66aa;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .book-controls button:hover {
+      background-color: #ff3388;
+    }
+
+    img.memory {
+      width: 220px;
+      border-radius: 15px;
+      border: 4px solid #ff99cc;
+      margin: 10px 0;
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="nav-container">
+    <a href="surprise.html">🎂 วันเกิด</a>
+    <a href="happy.html">💞 ครบรอบ</a>
+    <a href="popup.html">📖 หนังสือรัก</a>
+  </div>
+</nav>
+
+  <h2>📖 หนังสือรักของเรา</h2>
+  <div class="book-container">
+    <div id="page-content" class="page">
+      <!-- เนื้อหาแต่ละหน้า -->
+    </div>
+    <div class="book-controls">
+      <button onclick="prevPage()">⬅️ ย้อนกลับ</button>
+      <button onclick="nextPage()">➡️ หน้าต่อไป</button>
+    </div>
+  </div>
+
+  <script>
+    const bookPages = [
+      `
+        <h3>หน้าแรกของความรัก 💖</h3>
+        <p>มันเริ่มจากวันที่เค้าได้รู้จักเธอ โลกทั้งใบก็ดูสดใสขึ้นมาทันทีเลย</p>
+      `,
+      `
+        <h3>ถ่ายรูปกับหมู✨</h3>
+        <img src="img/2.jpg" class="memory" />
+        <p>รูปนี้จำได้มั้ย วันที่เราหัวเราะกัน 💗</p>
+      `,
+      `
+        <h3>วันที่เหนื่อย แต่มีเธออยู่ 💌</h3>
+        <p>แม้ในวันที่เค้าท้อที่สุด เธอก็ยังอยู่ตรงนี้ ขอบคุณจริง ๆ นะ</p>
+        <img src="img/IMG_20241111_150015.jpg" class="memory" />
+      `,
+      `
+        <h3>และจะอยู่กับเธอตลอดไป 🎁</h3>
+        <p>ขอบคุณที่เป็นเธอ เค้ารักเธอที่สุดเลยนะ 💕</p>
+      `
+    ];
+
+    let currentPage = 0;
+    const pageContent = document.getElementById("page-content");
+
+    function showPage(index) {
+      pageContent.innerHTML = bookPages[index];
+    }
+
+    function nextPage() {
+      if (currentPage < bookPages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+
+    // โหลดหน้าแรก
+    showPage(currentPage);
+  </script>
+</body>
+</html>
